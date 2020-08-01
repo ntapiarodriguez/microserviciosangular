@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Alumno } from '../models/alumno';
 
@@ -28,6 +28,13 @@ export class AlumnoService {
 
   public editar(alumno: Alumno): Observable<Alumno> {
     return this.http.put<Alumno>(`${this.baseEndpoint}/${alumno.id}`, alumno, { headers: this.cabeceras });
+  }
+
+  public listarPaginas(page: string, size: string): Observable<any>{
+    const params = new HttpParams()
+    .set('page', page)
+    .set('size', size);
+    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params});
   }
 
   public eliminar(id: number): Observable<void> {
