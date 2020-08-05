@@ -3,7 +3,9 @@ import Swal from 'sweetalert2'
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from '../services/common.service';
 import { Generic } from '../models/generic';
+import {Directive} from '@angular/core';
 
+@Directive()
 export abstract class CommonFormComponent<E extends Generic, S extends CommonService<E>> implements OnInit {
 
   titulo: string;
