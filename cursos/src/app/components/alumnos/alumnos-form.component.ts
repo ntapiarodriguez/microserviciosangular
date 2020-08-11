@@ -6,24 +6,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CommonFormComponent } from '../common-form.component';
 
 @Component({
-	selector: 'app-alumnos-form',
-	templateUrl: './alumnos-form.component.html',
-	styleUrls: ['./alumnos-form.component.css']
+  selector: 'app-alumnos-form',
+  templateUrl: './alumnos-form.component.html',
+  styleUrls: ['./alumnos-form.component.css']
 })
 export class AlumnosFormComponent
-	extends CommonFormComponent<Alumno, AlumnoService> implements OnInit {
+  extends CommonFormComponent<Alumno, AlumnoService> implements OnInit {
 
-  private fotoSeleccionada: File;
+    private fotoSeleccionada: File;
 
-	constructor(service: AlumnoService,
-		router: Router,
-		route: ActivatedRoute) {
-
-		super(service, router, route);
-		this.titulo = 'Crear Alumnos';
-		this.model = new Alumno();
-		this.redirect = '/alumnos';
-		this.nombreModel = Alumno.name;
+  constructor(service: AlumnoService,
+    router: Router,
+    route: ActivatedRoute) {
+      
+    super(service, router, route);
+    this.titulo = 'Crear Alumnos';
+    this.model = new Alumno();
+    this.redirect = '/alumnos';
+    this.nombreModel = Alumno.name;
   }
 
   public seleccionarFoto(event): void {
@@ -33,7 +33,7 @@ export class AlumnosFormComponent
     if(this.fotoSeleccionada.type.indexOf('image') < 0){
       this.fotoSeleccionada = null;
       Swal.fire(
-        'Error al seleccionar la foto:',
+        'Error al seleccionar la foto:', 
         'El archivo debe ser del tipo imagen',
         'error');
     }

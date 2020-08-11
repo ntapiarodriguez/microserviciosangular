@@ -13,7 +13,7 @@ export class ExamenService extends CommonService<Examen>{
 
   protected baseEndpoint = BASE_ENDPOINT + '/examenes';
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient) { 
     super(http);
   }
 
